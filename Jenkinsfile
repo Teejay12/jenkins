@@ -7,6 +7,7 @@ pipeline {
 
   environment {
     SURL = "pipeline.google.com"
+    CREDS = credential ('ROOT')
   }
   stages {
     stage('stage1') {
@@ -14,7 +15,7 @@ pipeline {
         SURL = "stage.google.com"
       }
       steps {
-        sh 'echo Hello stage1, URL = ${SURL}'
+        sh 'echo Hello stage1, URL = ${SURL} , CREDS = ${CREDS}'
       }
     }
 
