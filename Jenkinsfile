@@ -7,7 +7,7 @@ pipeline {
 
   environment {
     SURL = "pipeline.google.com"
-    CREDS = credential ('CENTOS')
+    CREDS = credentials('CENTOS')
   }
   stages {
     stage('stage1') {
