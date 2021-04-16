@@ -6,6 +6,7 @@ pipeline {
   }
   options {
     disableConcurrentBuilds()
+    buildDiscarder(logRotator(numToKeepStr: '1'))
   }
   environment {
     SURL = "pipeline.google.com"
