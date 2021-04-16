@@ -4,7 +4,9 @@ pipeline {
       label 'workstation'
     }
   }
-
+  options {
+    disableConcurrentBuilds()
+  }
   environment {
     SURL = "pipeline.google.com"
     CREDS = credentials('ROOT')
