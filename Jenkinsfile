@@ -30,6 +30,10 @@ pipeline {
   }
   stages {
     stage('stage1') {
+      input {
+        message "Should we continue?"
+        ok "Yes, we should."
+      }
       environment {
         SURL = "stage.google.com"
       }
