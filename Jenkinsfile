@@ -30,9 +30,11 @@ pipeline {
   }
   stages {
     stage('stage1') {
-      anyOf {
-        environment name: 'ENV', value: 'qa'
-        environment name: 'ENV', value: 'dev'
+      when {
+        anyOf {
+          environment name: 'ENV', value: 'qa'
+          environment name: 'ENV', value: 'dev'
+        }
       }
       input {
         message "Should we continue?"
