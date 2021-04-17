@@ -30,8 +30,9 @@ pipeline {
   }
   stages {
     stage('stage1') {
-      when {
-        ENV == "qa"
+      anyOf {
+        environment name: 'ENV', value: 'qa'
+        environment name: 'ENV', value: 'dev'
       }
       input {
         message "Should we continue?"
@@ -47,7 +48,7 @@ pipeline {
 
     stage('stage2') {
       when {
-        ENV == "prod"
+        environment name: 'ENV', value: 'prod'
       }
       steps {
         sh 'echo Hello stage2, URL = ${SURL}'
