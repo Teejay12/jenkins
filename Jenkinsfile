@@ -52,7 +52,11 @@ pipeline {
       when {
         environment name: 'ENV', value: 'prod'
       }
+      options {
+        lock label: 'DOCKER', quantity: 1, variable: 'deployEnv'
+      }
       steps {
+        sh 'echo ${deployEnv}'
         sh 'echo Hello stage2, URL = ${SURL}'
       }
     }
