@@ -36,10 +36,10 @@ pipeline {
           environment name: 'ENV', value: 'dev'
         }
       }
-      input {
-        message "Should we continue?"
-        ok "Yes, we should."
-      }
+//      input {
+//        message "Should we continue?"
+//       ok "Yes, we should."
+//     }
       environment {
         SURL = "stage.google.com"
       }
